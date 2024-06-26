@@ -1,0 +1,55 @@
+{
+    "albums": [],
+    "photos": [],
+    "highlights": [],
+    "repositories": [
+      {
+        "id": 1,
+        "name": "repo1",
+        "description": "Descrição do repositório 1",
+        "html_url": "https://github.com/user/repo1",
+        "language": "JavaScript",
+        "stargazers_count": 10,
+        "forks_count": 5
+      },
+      {
+        "id": 2,
+        "name": "repo2",
+        "description": "Descrição do repositório 2",
+        "html_url": "https://github.com/user/repo2",
+        "language": "Python",
+        "stargazers_count": 20,
+        "forks_count": 8
+      },
+      {
+        "id": 3,
+        "name": "repo3",
+        "description": "Descrição do repositório 3",
+        "html_url": "https://github.com/user/repo3",
+        "language": "Java",
+        "stargazers_count": 15,
+        "forks_count": 3
+      }
+    ],
+    "colleagues": [
+      {
+        "id": 1,
+        "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+        "name": "Colega 1",
+        "html_url": "https://github.com/samuellagee"
+      },
+      {
+        "id": 2,
+        "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+        "name": "Colega 2",
+        "html_url": "https://github.com/glaucoschettino"
+      },
+      {
+        "id": 3,
+        "avatar_url": "https://avatars.githubusercontent.com/u/3?v=4",
+        "name": "Colega 3",
+        "html_url": "https://github.com/gabrielcosta444"
+      }
+    ]
+  }
+  
