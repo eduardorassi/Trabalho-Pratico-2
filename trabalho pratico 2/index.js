@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    carregarPerfilGitHub();
-    carregarRepositoriosGitHub();
     carregarConteudoSugerido();
     carregarColegasTrabalho();
+    carregarPerfilGitHub();
+    carregarRepositoriosGitHub();
 });
 
 async function carregarPerfilGitHub() {
@@ -61,24 +61,20 @@ async function carregarRepositoriosGitHub() {
 
 async function carregarConteudoSugerido() {
     try {
-        const response = await fetch('http://localhost:3000/conteudosSugeridos');
+        const response = await fetch('https://c51bc587-35be-4d8f-859d-bd47fa6d52a0-00-1vehhynfpbfzl.picard.replit.dev/conteudos');
         if (!response.ok) {
             throw new Error('Não foi possível obter os conteúdos sugeridos');
         }
         const data = await response.json();
         const conteudosCarousel = data.map(conteudo => `
-            <div class="carousel-item">
-                <a href="${conteudo.urlConteudo}" target="_blank">
-                    <img src="${conteudo.urlImagem}" class="d-block w-100" alt="${conteudo.titulo}">
-                </a>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>${conteudo.titulo}</h5>
-                    <p>${conteudo.descricao}</p>
+                <div class="slide slide_1">
+                    <div class="slide-content">
+                        <iframe width="914" height="514" src="${conteudo.videos}" title="COMO EU COMEÇARIA HOJE NA PROGRAMAÇÃO. MUDE ISSO AGORA!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
         `).join('');
         document.getElementById('carousel-content').innerHTML = conteudosCarousel;
-        document.querySelector('.carousel-item').classList.add('active');
+        document.querySelector('.slide_1').classList.add('active');
     } catch (error) {
         console.error('Erro ao carregar conteúdo sugerido:', error.message);
     }
@@ -86,18 +82,19 @@ async function carregarConteudoSugerido() {
 
 async function carregarColegasTrabalho() {
     try {
-        const response = await fetch('http://localhost:3000/colegasTrabalho');
+        const response = await fetch('https://c51bc587-35be-4d8f-859d-bd47fa6d52a0-00-1vehhynfpbfzl.picard.replit.dev/colegas');
         if (!response.ok) {
             throw new Error('Não foi possível obter os colegas de trabalho');
         }
         const data = await response.json();
         const colegasCards = data.map(colega => `
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="${colega.urlFoto}" class="card-img-top" alt="${colega.nome}">
-                    <div class="card-body">
-                        <h5 class="card-title">${colega.nome}</h5>
-                        <a href="${colega.urlGitHub}" class="btn btn-primary" target="_blank">Perfil GitHub</a>
+            <div class="col-md-3 col-sm-6 mb-4 mx-5">
+                <div class="card h-100">
+                    <img src="${colega.imagem}" alt="${colega.nome}" />
+                    <div class="card__content">
+                        <p class="card__title">${colega.nome}</p>
+                        <a href="${colega.github}" class="card__title">Perfil No GitHub</a>
+                        <p class="card__description">Perfis</p>
                     </div>
                 </div>
             </div>

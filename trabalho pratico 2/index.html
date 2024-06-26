@@ -98,7 +98,7 @@
         <input type="radio" name="slider" id="slide4">
         <div id="slides">
             <div id="overflow">
-                <div class="inner">
+                <div class="inner" id="carousel-content">
                     <div class="slide slide_1">
                         <div class="slide-content">
                             <iframe width="914" height="514" src="https://www.youtube.com/embed/0T1E7dh8CEA" title="COMO EU COMEÇARIA HOJE NA PROGRAMAÇÃO. MUDE ISSO AGORA!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -142,7 +142,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row" id="colegas-grid">
             <div class="col-md-3 col-sm-6 mb-4 mx-5">
                 <div class="card h-100">
                     <img src="images/samuka.jpg" alt="Samuel Lage" />
@@ -192,31 +192,6 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        async function fetchGitHubRepos() {
-            const response = await fetch('https://api.github.com/users/eduardorassi/repos');
-            const repos = await response.json();
-            const repoContainer = document.getElementById('repos');
-
-            repos.forEach(repo => {
-                const repoCard = `
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <a href="repo.html?name=${repo.name}&description=${encodeURIComponent(repo.description || 'Descrição não disponível')}&language=${repo.language || 'N/A'}&url=${repo.html_url}" target="_blank">
-                            <div class="card h-100">
-                                <img src="github.jpg" class="card-img-top" alt="Imagem do repositório">
-                                <div class="card-body">
-                                    <h5 class="card-title">${repo.name}</h5>
-                                    <p class="card-text">${repo.description || 'Descrição não disponível'}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                `;
-                repoContainer.innerHTML += repoCard;
-            });
-        }
-
-        fetchGitHubRepos();
-    </script>
+    <script src="./index.js"></script>
 </body>
 </html>
